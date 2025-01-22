@@ -1,0 +1,20 @@
+<div th:if="${session.userId == null}">
+	<a th:href="@{/login}">Home</a> |
+	<a th:href="@{/register-form}">Register</a> |
+	<a th:href="@{#}">About</a>
+</div>
+
+<!--/* Admin */-->
+<div th:if="${session.userId != null && session.role == 1}">
+	<a th:href="@{/admin/dashboard}">Home</a> |
+	<a th:href="@{#}">User List</a> |
+	<a th:href="@{/logout}">Logout</a>
+</div>
+
+<!-- User -->
+<div th:if="${session.userId != null && session.role == 2}">
+	<a th:href="@{/user/dashboard}">Home</a> |
+	<a th:href="@{/user/contact-form}">Add Contact</a> |
+	<a th:href="@{/user/contact-list}">Contact List</a> |
+	<a th:href="@{/logout}">Logout</a>
+</div>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>User|Add Contact</title>
+</head>
+
+<body>
+	<table border="1" width="60%" align="center">
+		<tr>
+			<td height="40">
+				<!-- Header -->
+				<div th:insert="~{header}"></div>
+			</td>
+		</tr>
+		<tr>
+			<td height="20">
+				<!-- Menu -->
+				<div th:insert="menu"></div>
+			</td>
+		</tr>
+		<tr>
+			<td height="300" valign="top">
+				<!-- Body -->
+				<h3>Add Contact</h3>
+				
+				<p style="color: red;" th:if="${err!=null}" th:text="${err}">
+				</p>
+				
+				<form action="#" th:action="@{/user/save-contact}" th:object="${contact}" method="post">
+					<input type="hidden" th:field="*{contactId}">
+					<table>
+						<tr>
+							<td>Name</td>
+							<td><input type="text" th:field="*{name}"></td>
+						</tr>
+						<tr>
+							<td>Phone</td>
+							<td><input type="text" th:field="*{phone}"></td>
+						</tr>
+						<tr>
+							<td>Email</td>
+							<td><input type="text" th:field="*{email}"></td>
+						</tr>
+						<tr>
+							<td>Address</td>
+							<td>
+								<textarea th:field="*{address}"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td>Remark</td>
+							<td>
+								<textarea th:field="*{remark}"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td><button>Save</button></td>
+						</tr>
+					</table>
+					
+				</form>
+
+			</td>
+		</tr>
+		<tr>
+			<td height="20">
+				<!-- Footer -->
+				<div th:insert="footer"></div>
+
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Admin|Dashboard</title>
+</head>
+
+<body>
+	<table border="1" width="60%" align="center">
+		<tr>
+			<td height="40">
+				<!-- Header -->
+				<div th:insert="header"></div>
+			</td>
+		</tr>
+		<tr>
+			<td height="20">
+				<!-- Menu -->
+				<div th:insert="menu"></div>
+			</td>
+		</tr>
+		<tr>
+			<td height="300" valign="top">
+				<!-- Body -->
+				<h3>Admin Dashboard</h3>
+			</td>
+		</tr>
+		<tr>
+			<td height="20">
+				<!-- Footer -->
+				<div th:insert="footer"></div>
+
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>

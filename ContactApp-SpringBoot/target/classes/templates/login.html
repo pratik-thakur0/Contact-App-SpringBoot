@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>User|Login</title>
+</head>
+
+<body>
+	<table border="1" width="60%" align="center">
+		<tr>
+			<td height="40">
+				<!-- Header -->
+				<div th:insert="header"></div>
+			</td>
+		</tr>
+		<tr>
+			<td height="20">
+				<!-- Menu -->
+				<div th:insert="menu"></div>
+			</td>
+		</tr>
+		<tr>
+			<td height="300" valign="top">
+				<!-- Body -->
+				<h3>User Login</h3>
+				<p style="color: blue;" th:if="${param.act != null && param.act[0] == 'reg'}">
+					User Registered Successfully
+				</p>
+				<p style="color: blue;" th:if="${param.act != null && param.act[0] == 'lo'}">
+					User Logged Out Successfully
+				</p>
+				<p style="color: red;" th:if="${err!=null}" th:text="${err}">
+					User Registered Successfully
+				</p>
+				<form action="#" th:action="@{/login-action}" method="post">
+					<table>
+						<tr>
+							<td>Username</td>
+							<td><input type="text" name="username"></td>
+						</tr>
+						<tr>
+							<td>Password</td>
+							<td><input type="password" name="password"></td>
+						</tr>
+						<tr>
+							<td><button>Login</button><br />
+								<a href="#" th:href="@{/register-form}">Register User</a>
+							</td>
+						</tr>
+
+					</table>
+				</form>
+
+			</td>
+		</tr>
+		<tr>
+			<td height="20">
+				<!-- Footer -->
+				<div th:insert="footer"></div>
+
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>

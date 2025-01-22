@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>User|Contact-List</title>
+</head>
+
+<body>
+	<table border="1" width="60%" align="center">
+		<tr>
+			<td height="40">
+				<!-- Header -->
+				<div th:insert="header"></div>
+			</td>
+		</tr>
+		<tr>
+			<td height="20">
+				<!-- Menu -->
+				<div th:insert="menu"></div>
+			</td>
+		</tr>
+		<tr>
+			<td height="300" valign="top">
+				<!-- Body -->
+				<h3>Contact List</h3>
+
+				<form action="#" th:action="@{/user/contact/search}">
+					<input th:value="${param.criteria}" type="text" placeholder="Search here" name="criteria">
+					<button>Search</button>
+				</form><br />
+
+				<form th:action="@{/user/contact/bulkDelete}">
+					<button>Delete Selected</button>
+					<table border="1" cellpadding="5" width="90%" align="center">
+						<tr>
+							<td>Sr.</td>
+							<td>Select</td>
+							<td>CID</td>
+							<td>NAME</td>
+							<td>PHONE</td>
+							<td>EMAIL</td>
+							<td>ADDRESS</td>
+							<td>REMARK</td>
+							<td>ACTION</td>
+						</tr>
+						<tr th:each="c, itr : ${contactList}">
+							<td th:text="${itr.count}">Sr.</tdth:text="${c.contactId}">
+							<td>
+								<input type="checkbox" name="cids" th:value="${c.contactId}">
+							</td>
+							<td th:text="${itr.count}">Sr.</tdth:text="${c.contactId}">
+							<td th:text="${c.contactId}"></td>
+							<td th:text="${c.name}"></td>
+							<td th:text="${c.phone}"></td>
+							<td th:text="${c.email}"></td>
+							<td th:text="${c.address}"></td>
+							<td th:text="${c.remark}"></td>
+							<td>
+								<a href="#" th:href="@{'/user/contact/edit-form/' + ${c.contactId} + '/'}">EDIT</a>
+								|
+								<a href="#" th:href="@{'/user/contact/delete/' + ${c.contactId} + '/'}">DELETE</a>
+							</td>
+						</tr>
+					</table>
+				</form>
+
+			</td>
+		</tr>
+		<tr>
+			<td height="20">
+				<!-- Footer -->
+				<div th:insert="footer"></div>
+
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>
